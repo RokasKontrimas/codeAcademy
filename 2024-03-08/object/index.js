@@ -3,7 +3,7 @@ const posts = [{
     title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
     body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
     metaData: {
-        createdDate: '2021-09-12',
+        createdDate: '2024-03-11',
         status: 'published',
         language: 'EN',
     },
@@ -12,8 +12,8 @@ const posts = [{
     title: "qui est esse",
     body: "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
     metaData: {
-        createdDate: '2020-11-01',
-        status: 'published',
+        createdDate: '2022-06-01',
+        status: 'private',
         language: 'FR',
     },
 }, {
@@ -524,3 +524,70 @@ let task35 = posts.filter(post => {
     return createFormat(post.title, post.body, post.metaData)
 })
 createElementList(task35, 15)
+
+// 7.36
+let task36 = posts.filter(post => {
+    if (post.metaData.status === 'private' && post.metaData.createdDate >= new Date("2022-06-01").toISOString().split('T')[0] && post.metaData.createdDate <= new Date("2023-06-01").toISOString().split('T')[0]) {
+        return post
+    }
+}).map(post => {
+    return createFormat(post.title, post.body, post.metaData)
+})
+createElementList(task36, 16)
+
+// 7.37
+let task37 = posts.filter(post => {
+    let postDate = new Date(post.metaData.createdDate);
+    let postMonth = postDate.getMonth();
+    postMonth += 1;
+    if ((postMonth) % 2 === 0) {
+        return post;
+    }
+}).map(post => {
+    return createFormat(post.title, post.body, post.metaData)
+})
+createElementList(task37, 17)
+
+// 7.38
+let task38 = posts.filter(post => {
+    let postDate = new Date(post.metaData.createdDate);
+    let postedDay = postDate.getDay();
+    if (postedDay === 1) {
+        return post;
+    }
+
+}).map(post => {
+    return createFormat(post.title, post.body, post.metaData)
+})
+createElementList(task38, 18)
+
+// 7.39
+let task39 = posts.filter(post => {
+    let postDate = new Date(post.metaData.createdDate);
+    let postedDay = postDate.getDay();
+    if (postedDay === 0 || postedDay === 6) {
+        return post;
+    }
+
+}).map(post => {
+    return createFormat(post.title, post.body, post.metaData)
+})
+createElementList(task39, 19)
+
+// 7.40
+let task40 = posts.filter(post => {
+
+    let medianPost;
+    if (posts.length % 2 !== 0) {
+        const middleIndex = Math.floor(posts.length / 2);
+        medianPost = posts[middleIndex];
+        if (post.metaData.createdDate >= medianPost.metaData.createdDate) {
+            return post;
+        }
+    }
+
+
+}).map(post => {
+    return createFormat(post.title, post.body, post.metaData)
+})
+createElementList(task40, 20)
