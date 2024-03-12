@@ -234,6 +234,9 @@ let createElementList = (elements, index) => {
         ul.appendChild(li);
     }
 }
+let createFormat = (title, body) => {
+    return `Title: ${title}. Content: ${body}`;
+}
 
 
 // 7.20
@@ -244,30 +247,29 @@ createElementList(task20, 0)
 
 // 7.21
 let task21 = posts.map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
 });
 createElementList(task21, 1)
 
 // 7.22
-let task22 = posts
-    .filter(post => post.title[0] === "s")
+let task22 = posts.filter(post => post.title[0] === "s")
     .map(post => {
-        return `Title: ${post.title}. Content: ${post.body}`;
+        return createFormat(post.title, post.body)
     });
 createElementList(task22, 2)
 
 // 7.23
 let task23 = posts.filter(post => post.title[post.title.length - 1] === "t" || post.title[post.title.length - 1] === "m").map(post => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
 })
 
 createElementList(task23, 3)
 
 
 // 7.24
-let task24 = posts.map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
-}).filter(title => title.length > 15);
+let task24 = posts.filter(post => post.title.length > 15).map((post) => {
+    return createFormat(post.title, post.body)
+})
 createElementList(task24, 4)
 
 // 7.25
@@ -275,53 +277,54 @@ createElementList(task24, 4)
 let task25 = posts.filter(pair => {
     return pair.title.length < 20 && pair.body.length > 50;
 }).map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
 })
 createElementList(task25, 5);
 
 
 // 7.26
 
-let task26 = posts.filter(pair => {
-    let title = pair.title;
-    let body = pair.body;
+let task26 = posts.filter(post => {
+    let title = post.title;
+    let body = post.body;
     return title.length >= 20 && title.length <= 30 && body.length >= 70 && body.length <= 130;
-}).map((pair) => {
-    return `Title: ${pair.title}. Content: ${pair.body}`;
+}).map((post) => {
+    return createFormat(post.title, post.body)
 })
 
 createElementList(task26, 6);
 
 // 7.27
-let task27 = posts.filter(pair => {
-    let title = pair.title;
-    let body = pair.body;
+let task27 = posts.filter(post => {
+    let title = post.title;
+    let body = post.body;
     return title.includes('it') && body.includes('quo');
 }).map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
+
 })
 
 createElementList(task27, 7);
 
 // 7.28
 
-let task28 = posts.filter(pair => {
-    let title = pair.title;
-    let body = pair.body;
+let task28 = posts.filter(post => {
+    let title = post.title;
+    let body = post.body;
     return body.includes('sit') && !/\bsit\w*/.test(body)
 }).map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
 })
 createElementList(task28, 8)
 
 
 // 7.29
-let task29 = posts.filter(pair => {
-    let title = pair.title;
-    let body = pair.body;
+let task29 = posts.filter(post => {
+    let title = post.title;
+    let body = post.body;
     return (title.split('a').length - 1) > 3 && (body.split('o').length - 1) < 7;
 }).map((post) => {
-    return `Title: ${post.title}. Content: ${post.body}`;
+    return createFormat(post.title, post.body)
 })
 createElementList(task29, 9)
 
