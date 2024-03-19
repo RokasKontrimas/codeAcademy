@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #student-form {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;;
+    }
+</style>
+<body>
+<form id="student-form">
+
+    <label for="first-name">
+        First name
+    </label>
+    <input type="text" name="first-name" id="first-name" required>
+    <label for="second-name">Second name</label>
+    <input type="text" name="second-name" id="second-name" required>
+    <label for="age">Age</label>
+    <input type="number" name="age" id="age" min="18" required>
+    <label for="phone-number">Phone number</label>
+    <input type="tel" name="phone-number" id="phone-number">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <label for="it-knowledge">Rate your programming knowledge</label>
+    <input type="range" name="it-knowledge"
+           id="it-knowledge" min="1" max="10" step="1">
+    <fieldset>
+        <legend>Group</legend>
+        <label for="feu10">FEU-10</label>
+        <input type="radio" name="feu" id="feu10" value="feu10">
+        <label for="feu12">FEU-12</label>
+        <input type="radio" name="feu" id="feu12" value="feu12">
+        <label for="feu14">FEU-14</label>
+        <input type="radio" name="feu" id="feu14" value="feu14">
+        <label for="feu16">FEU-16</label>
+        <input type="radio" name="feu" id="feu16" value="feu16">
+        <label for="feu18">FEU-18</label>
+        <input type="radio" name="feu" id="feu18" value="feu18">
+        <label for="feu20">FEU-20</label>
+        <input type="radio" name="feu" id="feu20" value="feu20">
+    </fieldset>
+    <fieldset>
+        <legend>Programming language</legend>
+        <label for="c++">C++</label>
+        <input type="checkbox" name="programming-language[]" id="c++" value="c++">
+        <label for="c#">C#</label>
+        <input type="checkbox" name="programming-language[]" id="c#" value="c#">
+        <label for="c">C</label>
+        <input type="checkbox" name="programming-language[]" id="c" value="c">
+        <label for="python">Python</label>
+        <input type="checkbox" name="programming-language[]" id="python" value="python">
+        <label for="php">PHP</label>
+        <input type="checkbox" name="programming-language[]" id="php" value="php">
+        <label for="javascript">Javascript</label>
+        <input type="checkbox" name="programming-language[]" id="javascript" value="javascript">
+    </fieldset>
+    <button type="submit">Add me</button>
+</form>
+<div id="students-list">
+
+</div>
+<script src="index.js"></script>
+</body>
+</html>
