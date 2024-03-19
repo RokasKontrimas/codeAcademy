@@ -2,50 +2,70 @@ let studentList = document.getElementById('students-list')
 
 const studentForm = document.querySelector('#student-form')
 
+const userNotification = document.createElement('span')
+userNotification.style.color = 'green'
+userNotification.style.fontSize = '24px'
+
+const rangeElement = document.querySelector('input[name="it-knowledge"]')
+const rangeTracker = document.createElement('span')
+rangeElement.after(rangeTracker)
+rangeTracker.textContent = rangeElement.value;
+rangeElement.addEventListener('input', () => {
+    // console.log(rangeElement.value)
+    rangeTracker.textContent = rangeElement.value;
+})
 studentForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
-    let firstName = form['first-name'].value;
-    let secondName = form['second-name'].value;
-    let phoneNumber = form['phone-number'].value;
-    let email = form['email'].value;
-    let itKnowledge = form['it-knowledge'].value;
-    let group = form['feu'].value;
-    let checkedProgrammingLanguages = document.querySelectorAll('input[name="programming-language[]"]:checked');
+    const firstName = form['first-name'].value;
+    const secondName = form['second-name'].value;
+    const phoneNumber = form['phone-number'].value;
+    const email = form['email'].value;
+    const itKnowledge = form['it-knowledge'].value;
+    const group = form['feu'].value;
+    const checkedProgrammingLanguages = document.querySelectorAll('input[name="programming-language"]:checked');
+    studentForm.after(userNotification)
+    userNotification.textContent = `Created user ${firstName} ${secondName}`
+    setTimeout(() => {
+        userNotification.remove()
+    }, 1200)
 
-    let studentItem = document.createElement('div')
+    createStudentItem(firstName, secondName, phoneNumber, email, itKnowledge, group, checkedProgrammingLanguages, form)
+    form.reset()
+    rangeTracker.textContent = rangeElement.value;
+})
+
+
+const createStudentItem = (firstName, secondName, phoneNumber, email, itKnowledge, group, checkedProgrammingLanguages) => {
+    const studentItem = document.createElement('div')
     studentList.append(studentItem)
-    createStudentItem()
-
-    let studentName = document.createElement('h2')
+    const studentName = document.createElement('h2')
     studentName.textContent = `Name: ${firstName}`;
     studentItem.append(studentName)
-    let studentSecondName = document.createElement('h2')
+    const studentSecondName = document.createElement('h2')
     studentSecondName.textContent = `Second name: ${secondName}`
     studentName.after(studentSecondName)
-    let studentNumber = document.createElement('h3')
+    const studentNumber = document.createElement('h3')
     studentNumber.textContent = `Phone number: ${phoneNumber}`;
     studentSecondName.after(studentNumber)
-    let studentEmail = document.createElement('p')
+    const studentEmail = document.createElement('p')
     studentEmail.textContent = `Email: ${email}`;
     studentNumber.after(studentEmail)
-    let studentKnowledge = document.createElement('p')
+    const studentKnowledge = document.createElement('p')
     studentKnowledge.textContent = `IT knowledge: ${itKnowledge}`;
     studentEmail.after(studentKnowledge)
-    let studentGroup = document.createElement('p')
+    const studentGroup = document.createElement('p')
     studentGroup.textContent = `Selected group: ${group}`;
     studentKnowledge.after(studentGroup)
-    let studentProgrammingLanguages = document.createElement('ul')
+    const studentProgrammingLanguages = document.createElement('ul')
     studentGroup.after(studentProgrammingLanguages)
-    let listTitle = document.createElement('h2')
+    const listTitle = document.createElement('h2')
     listTitle.textContent = 'Selected programming languages';
     studentProgrammingLanguages.append(listTitle)
     checkedProgrammingLanguages.forEach((checkbox) => {
-        let programmingList = document.createElement('li')
+        const programmingList = document.createElement('li')
         programmingList.textContent = checkbox.value;
         studentProgrammingLanguages.append(programmingList)
     })
-})
-let createStudentItem = () => {
-
 }
+
