@@ -1,0 +1,22 @@
+{
+    "title": "Mad Max: Fury Road",
+    "ratings": {
+        "avg": 8.1,
+        "count": 1100000
+    },
+    "releaseDate": "2015",
+    "shortDescription": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper and a drifter named Max.",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+    ],
+    "directors": [
+        "George Miller"
+    ],
+    "mainActors": [
+        "Tom Hardy",
+        "Charlize Theron",
+        "Nicholas Hoult"
+    ]
+}

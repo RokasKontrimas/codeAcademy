@@ -1,0 +1,22 @@
+{
+    "title": "The Green Mile",
+    "ratings": {
+        "avg": 8.6,
+        "count": 1400000
+    },
+    "releaseDate": "1999",
+    "shortDescription": "A tale set on death row, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the lead guard, Paul Edgecombe, recognizes John's gift, he tries to help stave off the condemned man's execution.",
+    "genres": [
+        "Crime",
+        "Drama",
+        "Fantasy"
+    ],
+    "directors": [
+        "Frank Darabont"
+    ],
+    "mainActors": [
+        "Tom Hanks",
+        "Michael Clarke Duncan",
+        "David Morse"
+    ]
+}

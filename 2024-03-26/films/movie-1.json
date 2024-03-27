@@ -1,0 +1,22 @@
+{
+    "title": "The Lord of the Rings: The Return of the King",
+    "ratings": {
+        "avg": 9,
+        "count": 2000000
+    },
+    "releaseDate": "2003",
+    "shortDescription": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+    ],
+    "directors": [
+        "Peter Jackson"
+    ],
+    "mainActors": [
+        "Elijah Wood",
+        "Viggo Mortensen",
+        "Ian McKellen"
+    ]
+}

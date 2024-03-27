@@ -1,0 +1,22 @@
+{
+    "title": "Terminator 2: Judgement Day",
+    "ratings": {
+        "avg": 8.6,
+        "count": 1200000
+    },
+    "releaseDate": "1991",
+    "shortDescription": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son John from an even more advanced and powerful cyborg.",
+    "genres": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+    ],
+    "directors": [
+        "James Cameron"
+    ],
+    "mainActors": [
+        "Arnold Schwarzenegger",
+        "Linda Hamilton",
+        "Edward Furlong"
+    ]
+}
