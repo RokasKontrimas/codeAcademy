@@ -1,0 +1,107 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+
+.wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-bottom: 500px;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  gap: 20px;
+  align-items: start;
+}
+.wrapper aside {
+  grid-column: 1/2;
+  position: sticky;
+  top: 0;
+}
+.wrapper aside .filter-wrapper {
+  background: white;
+  padding: 40px;
+}
+.wrapper aside .filter-wrapper #time {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper aside .filter-wrapper select {
+  width: 100%;
+  display: block;
+  border-radius: 50px;
+  border: 0;
+  background: #f2f2f2;
+  padding: 10px;
+}
+.wrapper aside .filter-wrapper select option {
+  padding: 10px;
+  background: #f2f2f2;
+}
+.wrapper aside .filter-wrapper select:hover {
+  background: #dcdcdc;
+}
+.wrapper aside .filter-wrapper .filter-clear {
+  cursor: grab;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid blue;
+  border-radius: 50px;
+  color: blue;
+  background: none;
+}
+.wrapper main {
+  grid-column: 2/3;
+}
+.wrapper main .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.wrapper main .container .card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  background: white;
+  padding: 40px 40px 25px;
+}
+.wrapper main .container .card .card-link {
+  text-decoration: none;
+  color: black;
+}
+.wrapper main .container .card .card-header .header-link {
+  display: inline-block;
+  position: absolute;
+  text-decoration: none;
+  text-align: center;
+  background: #ff00e9;
+  color: white;
+  border-radius: 50px;
+  right: -10px;
+  padding: 4px 12px 4px 12px;
+}
+.wrapper main .container .card .card-footer {
+  padding: 19px 0 0;
+  margin-top: auto;
+}
+.wrapper main .container .card .card-footer ul {
+  list-style: none;
+  padding: 0;
+}
+.wrapper main .container .card .card-footer ul li {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+img {
+  width: 20%;
+}
+
+/*# sourceMappingURL=App.css.map */
