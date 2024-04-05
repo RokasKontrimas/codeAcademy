@@ -12,6 +12,17 @@ export default function Main() {
     information system vulnerabilities and residual risks based on the analysis of
     technical
     artifacts, interviews, and evaluations of IT systems.`
+    const obj1 = {
+        link: '#',
+        headerLinkText: 'uzt funding',
+        headerImg: 'https://codeacademy.lt/wp-content/uploads/2021/06/Cyber-Copy.png',
+        imageAlt: 'taram baram',
+        title: 'cyber security',
+        body: body1,
+        feature1: 'courses in english',
+        feature2: 'evenings',
+    }
+
 
     const body2 = ` 
     During this course you will learn how to setup Cloud infrastructure. How to automate
@@ -22,59 +33,60 @@ export default function Main() {
    automated and
     secure cloud infrastructure!`
 
+    const obj2 = {
+        link: '',
+        headerLinkText: 'uzt funding',
+        headerImg: 'https://codeacademy.lt/wp-content/uploads/2021/03/Full-Stack_dark-1.svg',
+        imageAlt: 'taram baram',
+        title: 'DevOps (223002955)',
+        body: body2,
+        feature1: 'courses in english',
+        feature2: 'vakarais',
+    }
     const body3 = `
     „Salesforce“ – įmonės operacinė sistema, leidžianti skirtingiems padaliniams sklandžiai
     dalintis informacija, sėkmingiau aptarnauti klientus, didinti produktyvumą, o
     svarbiausia –
     efektyviau išnaudoti sukauptus duomenis.`
+
+    const obj3 = {
+        link: '#',
+        headerLinkText: 'naujas',
+        headerImg: '',
+        imageAlt: 'taram baram',
+        title: '„Salesforce“ CRM – pradedančių',
+        body: body3,
+        feature1: '1 lygis',
+        feature2: 'vakarais',
+    }
     const body4 = `
-    Front-End programuotojas, pasitelkdamas HTML, CSS ir JavaScript, kuria vartotojui
-    matomą
-    sąsają. Todėl jo darbas yra ne tik techninio, bet ir kūrybinio pobūdžio.
-    `
+      Front-End programuotojas, pasitelkdamas HTML, CSS ir JavaScript, kuria vartotojui matomą
+       sąsają. Todėl jo darbas yra ne tik techninio, bet ir kūrybinio pobūdžio.`
+    const obj4 = {
+        link: '#',
+        headerLinkText: 'finansuojama',
+        headerImg: 'https://codeacademy.lt/wp-content/uploads/2021/03/Fron-End_dark-1.svg',
+        imageAlt: 'taram baram',
+        title: 'Front-end serverless (kompetencijų) programa bedarbiams asmenims (223002776)',
+        body: body4,
+        feature1: 'finansuojama užt - nekvalifikuotiems',
+        feature2: 'Dienomis',
+    }
 
     return (
         <main>
             <div className="container">
                 <Card
-                    link='#'
-                    headerLinkText='uzt funding'
-                    headerImg='https://codeacademy.lt/wp-content/uploads/2021/06/Cyber-Copy.png'
-                    imageAlt='taram baram'
-                    title='cyber security'
-                    body={body1}
-                    feature1='courses in english'
-                    feature2='evenings'
+                    data={obj1}
                 />
                 <Card
-                    link='#'
-                    headerLinkText='uzt funding'
-                    headerImg='https://codeacademy.lt/wp-content/uploads/2021/03/Full-Stack_dark-1.svg'
-                    imageAlt='taram baram'
-                    title='DevOps (223002955)'
-                    body={body2}
-                    feature1='courses in english'
-                    feature2='vakarais'
+                    data={obj2}
                 />
                 <Card
-                    link='#'
-                    headerLinkText='naujas'
-                    headerImg=''
-                    imageAlt='taram baram'
-                    title='„Salesforce“ CRM – pradedančių'
-                    body={body3}
-                    feature1='1 lygis'
-                    feature2='vakarais'
+                    data={obj3}
                 />
                 <Card
-                    link='#'
-                    headerLinkText='finansuojama'
-                    headerImg='https://codeacademy.lt/wp-content/uploads/2021/03/Fron-End_dark-1.svg'
-                    imageAlt='taram baram'
-                    title='Front-end serverless (kompetencijų) programa bedarbiams asmenims (223002776)'
-                    body={body4}
-                    feature1='finansuojama užt - nekvalifikuotiems'
-                    feature2='Dienomis'
+                    data={obj4}
                 />
             </div>
         </main>

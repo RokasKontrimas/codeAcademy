@@ -1,4 +1,4 @@
-export default function Input(props) {
+export default function InputElement(props) {
     return (
         <input type={props.type} id={props.id}/>
     )

@@ -1,25 +1,28 @@
 export default function Card(props) {
     return (
-        <div className="card">
-            <a href={props.link} className="card-link">
-                <div className="card-header">
-                    <span className="header-link">{props.headerLinkText}</span>
-                    {props.headerImg ? (<img src={props.headerImg} alt={props.imageAlt}/>) : ''}
-                </div>
-                <div className="card-body">
-                    <h2>{props.title}</h2>
-                    <p>
-                        {props.body}
-                    </p>
-                </div>
-                <div className="card-footer">
-                    <ul>
-                        <li>{props.feature1}</li>
-                        <li>{props.feature2}</li>
-                    </ul>
-                </div>
-            </a>
-        </div>
+        props.data.link ? (
+            <div className="card">
+                <a href={props.data.link} className="card-link">
+                    <div className="card-header">
+                        <span className="header-link">{props.data.headerLinkText}</span>
+                        {props.data.headerImg ? (<img src={props.data.headerImg} alt={props.data.imageAlt}/>) : ''}
+                    </div>
+                    <div className="card-body">
+                        <h2>{props.data.title}</h2>
+                        <p>
+                            {props.data.body}
+                        </p>
+                    </div>
+                    <div className="card-footer">
+                        <ul>
+                            <li>{props.data.feature1}</li>
+                            <li>{props.data.feature2}</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        ) : ''
+
 
     )
 }

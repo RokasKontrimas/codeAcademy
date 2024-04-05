@@ -1,49 +1,61 @@
-import Label from "./Label";
-import Select from "./Select";
-import Input from "./Input";
+
+import DynamicInputSelect from "./DynamicInputSelect";
 
 export default function Filter() {
     return (
         <aside>
             <div className="filter-wrapper">
                 <h2>Rastos programos</h2>
-                <Label title="Tema" selector='theme'/>
-                <Select id='theme'
-                        title={['rinkodara',
-                            'visos',
-                            'testavimas',
-                            'programavimas',
-                            'dizainas',
-                            'duomenys',
-                            'kibernetinis saugumas']}/>
+                <DynamicInputSelect
+                    id='theme'
+                    title='Tema'
+                    options={['rinkodara',
+                        'visos',
+                        'testavimas',
+                        'programavimas',
+                        'dizainas',
+                        'duomenys',
+                        'kibernetinis saugumas']}
+                    isInput={false}/>
+                <DynamicInputSelect
+                    id='location'
+                    title='Vieta'
+                    options={['visos',
+                        'online',
+                        'kaunas',
+                        'vilnius',
+                        'klaipeda']}
+                />
 
-                <Label title="Vieta" selector='location'/>
-                <Select id='location'
-                        title={['visos',
-                            'online',
-                            'kaunas',
-                            'vilnius',
-                            'klaipeda']}/>
+                <DynamicInputSelect
+                    title='Tipas'
+                    id='type'
+                    options={['visi',
+                        'courses in english',
+                        'pradedančių kursai',
+                        'pažengusių kursai',
+                        ' 1 + 2 lygis',
+                        'studijos 101',
+                        'finansuojama užt - nekvalifikuotiems',
+                        'finansuojama užt - nedirbantiems',
+                        'finansuojama užt - dirbantiems']}/>
 
-                <Label title="Tipas" selector='type'/>
-                <Select id='type'
-                        title={['visi',
-                            'courses in english',
-                            'pradedančių kursai',
-                            'pažengusių kursai',
-                            ' 1 + 2 lygis',
-                            'studijos 101',
-                            'finansuojama užt - nekvalifikuotiems',
-                            'finansuojama užt - nedirbantiems',
-                            'finansuojama užt - dirbantiems']}/>
-
-                <Label title='Laikas' selector='time'/>
-                <div id="time">
-                    <Label title='Dienomis' selector='day'/>
-                    <Input id='day' type='checkbox'/>
-                    <Label title='Vakarais' selector='evening'/>
-                    <Input id='evening' type='checkbox'/>
-                </div>
+                {/*<LabelElement title='Laikas' selector='time'/>*/}
+                <fieldset id="time">
+                    <legend>Laikas</legend>
+                    <DynamicInputSelect
+                        title='Dienomis'
+                        id='day'
+                        type='checkbox'
+                        isInput={true}
+                    />
+                    <DynamicInputSelect
+                        title='Vakarais'
+                        id='evening'
+                        type='checkbox'
+                        isInput={true}
+                    />
+                </fieldset>
                 <button type="button" className="filter-clear">Išvalyti</button>
             </div>
 
