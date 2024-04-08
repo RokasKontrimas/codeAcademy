@@ -1,0 +1,15 @@
+.button {
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 15px 50px;
+
+}
+
+.header-button {
+    color: black;
+    box-shadow: 0 0 1px 0 black;
+}
+.hero-button {
+    background: hsl(322, 100%, 66%);
+    color: white;
+}

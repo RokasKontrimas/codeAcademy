@@ -1,0 +1,25 @@
+.hero {
+    margin-top: 100px;
+    width: 100%;
+
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero-image-wrapper {
+    width: calc(100% / 2);
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+}
+
+.hero-content {
+    width: calc(100% / 2);
+    padding-right: 50px;
+}

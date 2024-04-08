@@ -1,0 +1,13 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.container {
+  min-height: 100%;
+  position: relative;
+  padding: 70px 70px 100px 70px;
+}

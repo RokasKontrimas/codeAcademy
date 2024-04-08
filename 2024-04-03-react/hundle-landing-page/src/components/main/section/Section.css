@@ -1,0 +1,29 @@
+.first-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.section-content {
+    padding-right: 50px;
+    width: calc(100% / 2);
+}
+
+.first-section img, .second-section img, .third-section img {
+    width: calc(100% / 2);
+}
+
+.second-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.third-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
