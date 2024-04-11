@@ -1,21 +1,20 @@
 const InputSelectionCombined = (props) => {
-    const { labelName, type, id, inputName,data,value, onStateChange } = props;
+    const {labelName, type, id, inputName, stateValue, onStateChange} = props;
     const handleInputChange = (e) => {
-        onStateChange(e.target.value);
-        // console.log(data,'current')
+        onStateChange(e.target.checked);
     };
 
     return (
         <div className='radio-input'>
-            <label htmlFor={id}>{labelName}</label>
             <input
                 type={type}
                 id={id}
                 name={inputName}
-                value={value}
-                checked={data === value}
+                defaultChecked={stateValue}
                 onChange={handleInputChange}
             />
+            <label htmlFor={id}>{labelName}</label>
+
         </div>
     );
 };

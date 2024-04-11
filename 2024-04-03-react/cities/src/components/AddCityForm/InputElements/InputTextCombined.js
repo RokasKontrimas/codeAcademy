@@ -12,7 +12,13 @@ const InputTextCombined = (props) => {
                 type={type}
                 name={inputName}
                 value={dataState}
-                onChange={(e) => onStateChange(e.target.value)
+                onChange={(e) => {
+                    if (type === 'number') {
+                        onStateChange(Number(e.target.value))
+                    } else {
+                        onStateChange(e.target.value)
+                    }
+                }
                 }/>
         </div>
     )

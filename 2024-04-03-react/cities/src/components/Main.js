@@ -1,20 +1,19 @@
-import React, {useRef, useState} from 'react'
+import {useState} from 'react'
 import HeaderComponent from "./HeaderItem/HeaderComponent";
 import CityComponent from "./CityItem/CityComponent";
 import './Main.css'
 import InputTextCombined from "./AddCityForm/InputElements/InputTextCombined";
 import InputSelectionCombined from "./AddCityForm/InputElements/InputSelectionCombined";
-import ButtonAddonComponent from "./AddCityForm/ButtonAddonComponent";
 
 const Main = () => {
-    const cityForm = document.getElementById('city-form')
+    const DEFAULT_POPULATION = 1000;
+    const DEFAULT_CAPITAL_VALUE = false;
     const [name, setName] = useState('')
-    const [population, setPopulation] = useState(0);
+    const [population, setPopulation] = useState(DEFAULT_POPULATION);
     const [continent, setContinent] = useState('')
     const [country, setCountry] = useState('')
     const [touristAttractions, setTouristAttractions] = useState('')
-    const [isCapital, setIsCapital] = useState('yes');
-    const [additionalAttractions, setAdditionalAttractions] = useState('');
+    const [isCapital, setIsCapital] = useState(DEFAULT_CAPITAL_VALUE);
     const [cities, setCities] = useState(
         [
             {
@@ -120,51 +119,30 @@ const Main = () => {
         ]);
 
 
-    class City {
-        constructor(name, population, country, continent, isCapital, touristAttractions) {
-            this.name = name
-            this.population = population
-            this.location = {}
-            this.location.continent = continent
-            this.location.country = country
-            this.touristAttractions = touristAttractions
-            this.isCapital = isCapital
-        }
-    }
+    const createNewCity = () => {
+        let attractions = touristAttractions.split(',').map(item => item.trim());
 
-    const returnCityData = (name, population, country, continent, touristAttractions, isCapital) => {
-        if (isCapital === 'yes') {
-            isCapital = true;
-        } else if (isCapital === 'no') {
-            isCapital = false;
-        }
-        return [name, population, country, continent, touristAttractions, isCapital]
-    }
-    const createNewCity = (data, form,additionalAttractions) => {
-        const [name, population, continent, country, touristAttractions, isCapital] = data
-// console.log(a.current.querySelectorAll('input'))
-        let attractions = [touristAttractions];
+        const newCity = {
+            name: name,
+            population: population,
+            location: {
+                country: country,
+                continent: continent,
+            },
+            touristAttractions: attractions,
+            isCapital: isCapital,
 
-        const attractionElements = additionalAttractions.current.querySelectorAll('input')
-        const parsedAttractions = [...attractionElements]
-        if (parsedAttractions.length > 0) {
-            parsedAttractions.map((attraction) => {
-                return attractions.push(attraction.value)
-            })
         }
-        const newCity =
-            new City(name, population, country, continent, isCapital, attractions)
 
 
         setCities(prevState => [newCity, ...prevState])
-        console.log(newCity)
-        if (parsedAttractions.length > 0) {
-            parsedAttractions.map((elem) => {
-                return elem.remove()
-            })
-        }
-        form.reset()
 
+        setName('')
+        setPopulation(DEFAULT_POPULATION)
+        setCountry('')
+        setContinent('')
+        setTouristAttractions('')
+        setIsCapital(DEFAULT_CAPITAL_VALUE)
     }
 
 
@@ -176,7 +154,7 @@ const Main = () => {
                 <h1 className='title'>City form</h1>
                 <form id='city-form' onSubmit={(e) => {
                     e.preventDefault()
-                    createNewCity(returnCityData(name, population, country, continent, touristAttractions, isCapital), cityForm,additionalAttractions)
+                    createNewCity()
                 }}>
                     <InputTextCombined
                         labelName='City'
@@ -213,42 +191,26 @@ const Main = () => {
                         dataState={country}
                         onStateChange={setCountry}
                     />
-
-                    <InputTextCombined
-                        labelName='Tourist attractions'
-                        id='tourist-attractions'
-                        type='text'
-                        inputName='tourist-attractions'
-                        dataState={touristAttractions}
-                        onStateChange={setTouristAttractions}
-                    />
-
-
-                    <div>
-                        <ButtonAddonComponent
-                            setAdditionals={setAdditionalAttractions}
-                            title='Add one more attraction'
-                        />
+                    <div className='form-control'>
+                    <label htmlFor='attractions'>
+                        Attractions
+                    </label>
+                    <textarea id='attractions'
+                              value={touristAttractions}
+                              onChange={(e) => setTouristAttractions(e.target.value)}>
+            </textarea>
                     </div>
+
                     <div className='form-radio'>
                         <InputSelectionCombined
                             labelName='Yes'
-                            type='radio'
+                            type='checkbox'
                             id='is-capital'
                             inputName='isCapital'
-                            data={isCapital}
-                            value='yes'
+                            stateValue={isCapital}
                             onStateChange={setIsCapital}
                         />
-                        <InputSelectionCombined
-                            labelName='No'
-                            type='radio'
-                            id='not-capital'
-                            inputName='isCapital'
-                            data={isCapital}
-                            value='no'
-                            onStateChange={setIsCapital}
-                        />
+
                     </div>
 
 
