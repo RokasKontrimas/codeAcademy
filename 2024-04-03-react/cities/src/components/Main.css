@@ -1,0 +1,30 @@
+.title {
+    text-align: center;
+}
+#city-form {
+    padding-left: 40px;
+    padding-bottom: 30px;
+
+}
+.form-control {
+    width: 40vh;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.form-radio {
+    display: flex;
+    gap: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.radio-input {
+
+}
+#additional-attractions-list {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30vh;
+}
