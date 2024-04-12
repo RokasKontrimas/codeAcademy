@@ -6,7 +6,8 @@ const HeaderComponent = () => {
         <header>
             <nav>
                 <ul>
-                    <li><Link to='/add-city'>Add city</Link></li>
+                    <li><NavLink to='/'>Cities</NavLink></li>
+                    <li><NavLink to='/cars'>Cars</NavLink></li>
                 </ul>
             </nav>
         </header>

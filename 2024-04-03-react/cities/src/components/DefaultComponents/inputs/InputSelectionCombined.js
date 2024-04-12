@@ -10,7 +10,7 @@ const InputSelectionCombined = (props) => {
                 type={type}
                 id={id}
                 name={inputName}
-                defaultChecked={stateValue}
+                checked={stateValue}
                 onChange={handleInputChange}
             />
             <label htmlFor={id}>{labelName}</label>

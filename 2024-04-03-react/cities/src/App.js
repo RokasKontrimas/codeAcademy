@@ -1,15 +1,14 @@
-import './App.css';
-import {Routes,Route} from "react-router-dom";
-import Main from "./components/Main";
-import FormComponent from "./components/AddCityForm/FormComponent";
+import {Routes, Route} from "react-router-dom";
+import Cities from "./Pages/Cities";
+import Cars from "./Pages/Cars";
 
 function App() {
 
 
     return (
         <Routes>
-        <Route path='/' element={<Main/>}/>
-<Route path='/add-city' element={<FormComponent/>}/>
+            <Route path='/' element={<Cities/>}/>
+            <Route path='/cars' element={<Cars/>}/>
         </Routes>
     );
 }

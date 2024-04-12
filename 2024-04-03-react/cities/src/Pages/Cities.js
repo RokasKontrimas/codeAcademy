@@ -1,11 +1,10 @@
 import {useState} from 'react'
-import HeaderComponent from "./HeaderItem/HeaderComponent";
-import CityComponent from "./CityItem/CityComponent";
-import './Main.css'
-import FormComponent from "./AddCityForm/FormComponent";
+import HeaderComponent from "../components/HeaderItem/HeaderComponent";
+import CityComponent from "../components/City/CityItem/CityComponent";
+import FormComponent from "../components/City/CityForm/FormComponent";
 
 
-const Main = () => {
+const Cities = () => {
     const [cities, setCities] = useState(
         [
             {
@@ -110,7 +109,7 @@ const Main = () => {
             }
         ]);
 
-    const returnCities = (newCity) => {
+    const handleNewCity = (newCity) => {
 
         setCities(prevState => [newCity, ...prevState])
     }
@@ -119,9 +118,9 @@ const Main = () => {
     return (
         <>
             <HeaderComponent/>
+            <FormComponent onNewCity={handleNewCity}/>
             <CityComponent cities={cities}/>
-            <FormComponent onCitiesChange={returnCities}/>
         </>
     )
 }
-export default Main
+export default Cities

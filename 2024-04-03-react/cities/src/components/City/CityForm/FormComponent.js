@@ -1,10 +1,10 @@
 import './FormComponent.css'
-import InputTextCombined from "./InputElements/InputTextCombined";
-import InputSelectionCombined from "./InputElements/InputSelectionCombined";
+import InputTextCombined from "../../DefaultComponents/inputs/InputTextCombined";
+import InputSelectionCombined from "../../DefaultComponents/inputs/InputSelectionCombined";
 import {useState} from "react";
 
 const FormComponent = (props) => {
-    const {onCitiesChange} = props
+    const {onNewCity} = props
     const DEFAULT_POPULATION = 1000;
     const DEFAULT_CAPITAL_VALUE = false;
     const [name, setName] = useState('')
@@ -28,7 +28,7 @@ const FormComponent = (props) => {
 
         }
 
-        onCitiesChange(newCity)
+        onNewCity(newCity)
 
         setName('')
         setPopulation(DEFAULT_POPULATION)
@@ -52,7 +52,6 @@ const FormComponent = (props) => {
                     dataState={name}
                     onStateChange={setName}
                 />
-
                 <InputTextCombined
                     labelName='Population'
                     id='population'
