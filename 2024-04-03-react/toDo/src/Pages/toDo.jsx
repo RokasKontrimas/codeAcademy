@@ -17,10 +17,43 @@ const ToDo = () => {
             id: id,
             completed: false,
 
-        }
+        }, {
+            title: 'Sukurti toDo forma 2',
+            description: 'Sukurti formos komponenta su input laukeliais 2',
+            completeUntil: formattedDate,
+            createdAt: createdAt,
+            id: 3213123123987,
+            completed: false,
+
+        }, {
+            title: 'Sukurti toDo forma 3',
+            description: 'Sukurti formos komponenta su input laukeliais 3',
+            completeUntil: formattedDate,
+            createdAt: createdAt,
+            id: 3213123123921387,
+            completed: true,
+
+        }, {
+            title: 'Apsirengti siltai',
+            description: 'Sukurti silta ruba',
+            completeUntil: formattedDate,
+            createdAt: createdAt,
+            id: 3213123123921387,
+            completed: true,
+
+        }, {
+            title: 'Pasiruosti vasarai',
+            description: 'Padaryti 20 atsispaudimu silta',
+            completeUntil: formattedDate,
+            createdAt: createdAt,
+            id: 3213123123921387,
+            completed: true,
+
+        },
     ];
     const [toDoList, setToDoList] = useState(toDoItems)
-    const [selectedItem, setSelectedItem] = useState('')
+    const [selectedItem, setSelectedItem] = useState(null)
+    const [filteredTodos, setFilteredTodos] = useState(null)
     const handleNewToDo = (newItem) => {
         setToDoList(prevState => [newItem, ...prevState])
     }
@@ -41,20 +74,48 @@ const ToDo = () => {
         setSelectedItem(selectedItem);
     }
     const initiateEdit = (editedTask) => {
-                console.log(editedTask)
+        console.log(editedTask)
         const updatedList = toDoList.map((item) => {
             if (item.id === editedTask.id) {
-                return editedTask; // Return the edited task
+                // Return the edited task
+                return editedTask;
             }
-            return item; // Return the original item if not being edited
+            // Return the original item if not being edited
+            return item;
         });
-        setToDoList(updatedList); // Update the state with the new list
+        // Update the state with the new list
+        setToDoList(updatedList);
     };
 
+    const searchEngine = (e) => {
+        const searchText = e.target.value.toLowerCase().trim();
+        const defaultItems = [...toDoList];
+        if (searchText) {
+            const filteredTodos = defaultItems.filter((toDo) => {
+                return toDo.title.toLowerCase().includes(searchText) || toDo.description.toLowerCase().includes(searchText);
+            });
+            setFilteredTodos(filteredTodos);
+        } else {
+            setFilteredTodos(null);
+        }
+    }
+
+    useEffect(() => {
+        setToDoList(filteredTodos || toDoItems);
+    }, [filteredTodos]);
 
 
     return (
         <div>
+            <div>
+                <input
+                    id='search'
+                    name='search'
+                    type='search'
+                    onChange={(e) => searchEngine(e)}
+                />
+
+            </div>
             <ToDoForm
                 onNewToDo={handleNewToDo}
                 selectedItem={selectedItem}

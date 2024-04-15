@@ -5,6 +5,7 @@ const InputSelectiveCombined = (props) => {
     return (
         <div>
             <input
+                checked={stateValue}
                 type={type}
                 id={id}
                 name={name}
