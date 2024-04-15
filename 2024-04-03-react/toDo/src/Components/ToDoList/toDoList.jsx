@@ -3,14 +3,16 @@ import TodoItem from "../TodoItem/TodoItem.jsx";
 
 const ToDoList = (props) => {
 
-    const {data, onMarkTaskCompleted, } = props
+    const {data, onMarkTaskCompleted,onTaskDelete,handleTaskEdit } = props
     return (
         <div className="todo-items-list">
-            {data.map((toDoItem) => {
+            {data.map((toDoItem,index) => {
                 return <TodoItem
                     data={toDoItem}
-                    key={toDoItem.id}
+                    key={index}
                     onMarkTaskCompleted={onMarkTaskCompleted}
+                    onTaskDelete={onTaskDelete}
+                    handleTaskEdit={handleTaskEdit}
                     />
             })}
 

@@ -1,27 +1,34 @@
 import InputTextCombined from "../Inputs/InputTextCombined.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import InputCustomCombined from "../Inputs/InputCustomCombined.jsx";
 import {format} from "date-fns";
 
 const ToDoForm = (props) => {
-    const {onNewToDo, selectedItem} = props
+    const {onNewToDo, selectedItem, initiateEdit} = props
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
-    const CREATED_AT = format(new Date(), 'yyyy-mm-dd HH:mm')
+    const DATE_NOW = format(new Date(), 'yyyy-mm-dd HH:mm')
     const ID = Math.ceil(Math.random() * 10000)
-    if (selectedItem) {
-        setTitle('abc')
-        // setDescription(selectedItem.description)
-        console.log(selectedItem.title)
-    }
+    const [editingItem, setEditingItem] = useState('')
+    useEffect(() => {
+        if (selectedItem) {
+            setEditingItem(selectedItem)
+
+            setTitle(selectedItem.title)
+            setDescription(selectedItem.description)
+            setDate(selectedItem.completeUntil)
+        }
+
+    }, [selectedItem]);
+
     const onFormSubmit = (e) => {
         e.preventDefault()
         const newToDoItem = {
             title,
             description,
             completeUntil: date,
-            createdAt: CREATED_AT,
+            createdAt: DATE_NOW,
             completed: false,
             id: ID,
 
@@ -30,9 +37,27 @@ const ToDoForm = (props) => {
         setTitle('')
         setDescription('')
         setDate('')
+        setEditingItem('')
     }
+    const onEditSubmit = (e) => {
+        e.preventDefault();
+        const editedTask = {
+            ...editingItem,
+            title,
+            description,
+            completeUntil: date,
+            editedAt: DATE_NOW,
+        };
+        initiateEdit(editedTask);
+        setTitle('');
+        setDescription('');
+        setDate('');
+        setEditingItem(null);
+    };
     return (
-        <form onSubmit={(e) => onFormSubmit(e)}>
+        <form onSubmit={(e) => {
+            editingItem ? onEditSubmit(e) : onFormSubmit(e)
+        }}>
             <InputTextCombined
                 labelName='Title'
                 type='text'
@@ -57,7 +82,7 @@ const ToDoForm = (props) => {
                 stateValue={date}
                 onStateChange={setDate}
             />
-            <button type='submit'>Confirm</button>
+            <button type='submit'>{editingItem ? 'Save' : 'Create'}</button>
         </form>
     )
 }
