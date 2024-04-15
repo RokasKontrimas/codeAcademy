@@ -4,12 +4,17 @@ import InputCustomCombined from "../Inputs/InputCustomCombined.jsx";
 import {format} from "date-fns";
 
 const ToDoForm = (props) => {
-    const {onNewToDo} = props
+    const {onNewToDo, selectedItem} = props
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
     const CREATED_AT = format(new Date(), 'yyyy-mm-dd HH:mm')
     const ID = Math.ceil(Math.random() * 10000)
+    if (selectedItem) {
+        setTitle('abc')
+        // setDescription(selectedItem.description)
+        console.log(selectedItem.title)
+    }
     const onFormSubmit = (e) => {
         e.preventDefault()
         const newToDoItem = {

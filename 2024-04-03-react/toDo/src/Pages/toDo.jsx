@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import ToDoForm from "../Components/ToDoForm/ToDoForm.jsx";
 import ToDoList from "../Components/ToDoList/toDoList.jsx";
-import {format} from "date-fns";
+import {constructNow, format} from "date-fns";
 
 const ToDo = () => {
-    const date = new Date();
-    const formatedDate = format(date, 'yyyy-mm-dd HH:mm')
+    const date = constructNow(new Date());
+    const formatedDate = format(date, 'yyyy-MM-dd HH:mm')
+    console.log(formatedDate)
     const createdAt = format(new Date(), 'yyyy-mm-dd HH:mm')
     const id = Math.ceil(Math.random() * 10000)
     const toDoItems = [
@@ -23,10 +24,20 @@ const ToDo = () => {
     const handleNewToDo = (newItem) => {
         setToDoList(prevState => [newItem, ...prevState])
     }
+    const onMarkTaskCompleted = (id) => {
+        const updatedList = toDoList.map((item) => {
+            if (item.id === id) {
+                return {...item, completed: true};
+            }
+            return item;
+        });
+        setToDoList(updatedList);
+    };
+
     return (
         <div>
-            <ToDoForm onNewToDo={handleNewToDo}/>
-            <ToDoList data={toDoList}/>
+            <ToDoForm onNewToDo={handleNewToDo} />
+            <ToDoList data={toDoList} onMarkTaskCompleted={onMarkTaskCompleted} />
         </div>
     )
 }

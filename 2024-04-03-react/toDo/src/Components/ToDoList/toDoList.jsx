@@ -2,14 +2,16 @@ import React from 'react'
 import TodoItem from "../TodoItem/TodoItem.jsx";
 
 const ToDoList = (props) => {
-    const {data} = props
-    console.log(data)
+
+    const {data, onMarkTaskCompleted, } = props
     return (
         <div className="todo-items-list">
-            {data.map((toDoItem, index) => {
-                return <>
-                    <TodoItem data={toDoItem} key={index}/>
-                </>
+            {data.map((toDoItem) => {
+                return <TodoItem
+                    data={toDoItem}
+                    key={toDoItem.id}
+                    onMarkTaskCompleted={onMarkTaskCompleted}
+                    />
             })}
 
         </div>
