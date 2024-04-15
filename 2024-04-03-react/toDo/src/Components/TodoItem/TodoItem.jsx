@@ -25,7 +25,7 @@ const TodoItem = (props) => {
             <p>{data.description}</p>
             <i>Status: {data.completed ? (<s>Completed</s>) : (<span>Completed</span>)}</i>
             <span>Task created at: <span>{data.createdAt}</span></span>
-            {!data.completed && (
+            {/*{!data.completed && (*/}
                 <InputSelectiveCombined
                     labelName='Mark as completed'
                     type='checkbox'
@@ -35,7 +35,7 @@ const TodoItem = (props) => {
                     onStateChange={onMarkTaskCompleted}
                     eId={data.id}
                 />
-            )}
+            {/*)}*/}
         </div>
     );
 }

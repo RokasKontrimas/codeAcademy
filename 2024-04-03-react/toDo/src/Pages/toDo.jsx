@@ -26,8 +26,11 @@ const ToDo = () => {
     }
     const onMarkTaskCompleted = (id) => {
         const updatedList = toDoList.map((item) => {
-            if (item.id === id) {
+            if (item.id === id && item.completed === false) {
                 return {...item, completed: true};
+            }
+            if (item.id === id && item.completed === true) {
+                return {...item, completed: false}
             }
             return item;
         });
@@ -36,8 +39,8 @@ const ToDo = () => {
 
     return (
         <div>
-            <ToDoForm onNewToDo={handleNewToDo} />
-            <ToDoList data={toDoList} onMarkTaskCompleted={onMarkTaskCompleted} />
+            <ToDoForm onNewToDo={handleNewToDo}/>
+            <ToDoList data={toDoList} onMarkTaskCompleted={onMarkTaskCompleted}/>
         </div>
     )
 }
