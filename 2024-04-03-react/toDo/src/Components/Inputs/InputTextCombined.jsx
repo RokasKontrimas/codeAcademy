@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ErrorComponent from "../ErrorComponent/ErrorComponent.jsx";
 
 const InputTextCombined = (props) => {
     const {labelName, type, id, name, stateValue, onStateChange, errorMessage} = props
+    const [error, setError] = useState(errorMessage)
     return (
         <>
             <label htmlFor={id}>{labelName}</label>
@@ -13,11 +14,12 @@ const InputTextCombined = (props) => {
                 value={stateValue}
                 onChange={(e) => {
                     onStateChange(e.target.value)
+                    setError(null)
                 }}
                 required={true}
             />
             {errorMessage && (
-                <ErrorComponent message={errorMessage}/>
+                <ErrorComponent message={error}/>
             )}
         </>
     )
