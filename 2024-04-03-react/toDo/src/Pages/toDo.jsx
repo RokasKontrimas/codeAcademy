@@ -114,10 +114,12 @@ const ToDo = () => {
     return (
         <div>
             <div>
+                <label htmlFor='search'>Search</label>
                 <input
                     id='search'
                     name='search'
                     type='search'
+                    placeholder='Search for something..'
                     onChange={(e) => searchEngine(e)}
                 />
 

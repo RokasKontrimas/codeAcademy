@@ -1,7 +1,8 @@
 import React from 'react'
+import ErrorComponent from "../ErrorComponent/ErrorComponent.jsx";
 
 const InputCustomCombined = (props) => {
-    const {labelName,type,id,name,stateValue,onStateChange} = props
+    const {labelName, type, id, name, stateValue, onStateChange, errorMessage} = props
 
     return (
         <>
@@ -13,10 +14,13 @@ const InputCustomCombined = (props) => {
                 value={stateValue}
                 onChange={(e) => {
                     if (name === 'date') {
-                        onStateChange(e.target.value.replace('T',' '))
+                        onStateChange(e.target.value.replace('T', ' '))
                     }
                 }}
             />
+            {errorMessage && (
+                <ErrorComponent message={errorMessage}/>
+            )}
         </>
     )
 }
