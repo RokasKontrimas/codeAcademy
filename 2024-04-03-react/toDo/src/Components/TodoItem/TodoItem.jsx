@@ -1,6 +1,6 @@
 import React from 'react';
 import InputSelectiveCombined from "../Inputs/InputSelectiveCombined.jsx";
-import {format, formatDistance} from "date-fns";
+import {formatDistance} from "date-fns";
 
 const TodoItem = (props) => {
     const {data, onMarkTaskCompleted, onTaskDelete, handleTaskEdit} = props;
@@ -36,8 +36,8 @@ const TodoItem = (props) => {
                 onStateChange={onMarkTaskCompleted}
                 eId={data.id}
             />
-            <button style={{width: '10%'}} onClick={() => onTaskDelete(data.id)}>Remove</button>
-            <button style={{width: '10%'}} onClick={() => handleTaskEdit(data.id)}>Edit</button>
+            <button style={{width: '15%'}} onClick={() => onTaskDelete(data.id)}>Remove</button>
+            <button style={{width: '15%'}} onClick={() => handleTaskEdit(data.id)}>Edit</button>
         </div>
     );
 }

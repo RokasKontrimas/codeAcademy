@@ -4,69 +4,76 @@ import ToDoList from "../Components/ToDoList/toDoList.jsx";
 import {constructNow, format} from "date-fns";
 
 const ToDo = () => {
-    const date = constructNow(new Date());
-    const formattedDate = format(date, 'yyyy-MM-dd HH:mm')
-    const createdAt = format(new Date(), 'yyyy-mm-dd HH:mm')
+    const DATE_NOW = format(new Date(), 'yyyy-mm-dd HH:mm')
     const id = Math.ceil(Math.random() * 10000)
     const toDoItems = [
         {
             title: 'Sukurti toDo forma',
             description: 'Sukurti formos komponenta su input laukeliais',
-            completeUntil: formattedDate,
-            createdAt: createdAt,
+            completeUntil: '2024-04-17 16:00',
+            createdAt: DATE_NOW,
             id: id,
             completed: false,
 
         }, {
             title: 'Sukurti toDo forma 2',
             description: 'Sukurti formos komponenta su input laukeliais 2',
-            completeUntil: formattedDate,
-            createdAt: createdAt,
-            id: 3213123123987,
+            completeUntil: '2024-04-16 16:00',
+            createdAt: DATE_NOW,
+            id: 32131231565423987,
             completed: false,
 
         }, {
             title: 'Sukurti toDo forma 3',
             description: 'Sukurti formos komponenta su input laukeliais 3',
-            completeUntil: formattedDate,
-            createdAt: createdAt,
-            id: 3213123123921387,
-            completed: true,
+            completeUntil: '2024-04-16 15:00',
+            createdAt: DATE_NOW,
+            id: 3213123132423921387,
+            completed: false,
 
         }, {
             title: 'Apsirengti siltai',
             description: 'Sukurti silta ruba',
-            completeUntil: formattedDate,
-            createdAt: createdAt,
-            id: 3213123123921387,
-            completed: true,
+            completeUntil: '2024-04-16 11:00',
+            createdAt: DATE_NOW,
+            id: 3213123123921231387,
+            completed: false,
 
         }, {
             title: 'Pasiruosti vasarai',
             description: 'Padaryti 20 atsispaudimu silta',
-            completeUntil: formattedDate,
-            createdAt: createdAt,
-            id: 3213123123921387,
-            completed: true,
+            completeUntil: '2024-04-24 19:00',
+            createdAt: DATE_NOW,
+            id: 3213123123123921387,
+            completed: false,
 
         },
     ];
+
     const [toDoList, setToDoList] = useState(toDoItems)
     const [selectedItem, setSelectedItem] = useState(null)
     const [filteredTodos, setFilteredTodos] = useState(null)
+    toDoList.sort((a, b) => {
+        const dateA = new Date(a.completeUntil);
+        const dateB = new Date(b.completeUntil);
+        return dateA - dateB;
+    });
+
+
     const handleNewToDo = (newItem) => {
         setToDoList(prevState => [newItem, ...prevState])
     }
     const onMarkTaskCompleted = (id) => {
         const updatedList = toDoList.map((item) => {
             if (item.id === id) {
-                return {...item, completed: !item.completed};
+                return {...item, completed: !item.completed, editedAt: DATE_NOW};
             }
             return item;
         });
         setToDoList(updatedList);
     };
     const onTaskDelete = (id) => {
+        setSelectedItem(null)
         setToDoList(toDoList.filter((item) => item.id !== id))
     }
     const handleTaskEdit = (id) => {
@@ -74,7 +81,6 @@ const ToDo = () => {
         setSelectedItem(selectedItem);
     }
     const initiateEdit = (editedTask) => {
-        console.log(editedTask)
         const updatedList = toDoList.map((item) => {
             if (item.id === editedTask.id) {
                 // Return the edited task
