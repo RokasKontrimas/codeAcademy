@@ -1,0 +1,11 @@
+form {
+    margin-left: 50px;
+    width: 50%;
+}
+.btn {
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(0, 37, 68, 0.3);
+}
